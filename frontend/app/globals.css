@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg: #0a0e13;
+  --surface: #111821;
+  --surface-2: #17212c;
+  --border: #243142;
+  --text: #e8edf3;
+  --muted: #93a2b5;
+  --accent: #3987e5;
+  --s1: #3987e5;   /* chart slots (validated dark steps) */
+  --s2: #d95926;
+  --s3: #199e70;
+  --ok: #3fb950;
+  --warn: #e3a008;
+  --bad: #f0605d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-line: var(--border);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 80% -10%, #12304f55, transparent), var(--bg);
+  color: var(--text);
+}
+
+a, button, input, select, textarea { outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 10px; padding: .6rem 1rem; font-weight: 600;
+  background: var(--accent); color: #fff; transition: filter .15s; }
+.btn:hover:not(:disabled) { filter: brightness(1.12); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); font-weight: 500; }
+.field { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: .5rem .7rem; width: 100%; color: var(--text); }
+.label { font-size: .78rem; color: var(--muted); display: block; margin-bottom: .25rem; }

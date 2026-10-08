@@ -1,0 +1,89 @@
+{
+ "catalog": {
+  "REP_FULL": {
+   "severity": "success",
+   "template": "Full repetition completed."
+  },
+  "LOW_VISIBILITY": {
+   "severity": "error",
+   "template": "Unable to validate repetition due to poor landmark visibility."
+  },
+  "TRACKING_GAP": {
+   "severity": "error",
+   "template": "Tracking was lost during this repetition, so it could not be validated."
+  },
+  "VIDEO_ENDED": {
+   "severity": "info",
+   "template": "The video ended before this repetition finished, so it could not be validated."
+  },
+  "INVALID_START": {
+   "severity": "info",
+   "template": "The video started mid-movement, so the starting position could not be validated."
+  },
+  "SQUAT_DEPTH": {
+   "severity": "warning",
+   "template": "Insufficient squat depth (minimum knee angle {min_angle:.0f}\u00b0, target \u2264 {target:.0f}\u00b0)."
+  },
+  "SQUAT_HIP_ABOVE_KNEE": {
+   "severity": "warning",
+   "template": "Hips did not drop to knee level (required by the strict preset)."
+  },
+  "SQUAT_NO_STAND": {
+   "severity": "warning",
+   "template": "Incomplete standing extension before the next movement."
+  },
+  "SQUAT_START_NOT_STANDING": {
+   "severity": "warning",
+   "template": "Repetition did not start from a full standing position."
+  },
+  "SQUAT_TORSO": {
+   "severity": "warning",
+   "template": "Significant torso movement detected (peak inclination {lean:.0f}\u00b0 from vertical)."
+  },
+  "PUSHUP_DEPTH": {
+   "severity": "warning",
+   "template": "Insufficient depth (minimum elbow angle {min_angle:.0f}\u00b0, target \u2264 {target:.0f}\u00b0)."
+  },
+  "PUSHUP_SHOULDER": {
+   "severity": "warning",
+   "template": "Shoulders did not travel far enough downward."
+  },
+  "PUSHUP_NO_LOCKOUT": {
+   "severity": "warning",
+   "template": "Incomplete elbow extension at the top."
+  },
+  "PUSHUP_START_NOT_EXTENDED": {
+   "severity": "warning",
+   "template": "Repetition did not start from fully extended arms."
+  },
+  "PUSHUP_SAG": {
+   "severity": "warning",
+   "template": "Significant hip sagging detected ({dev:.0%} of body length below the shoulder\u2013ankle line)."
+  },
+  "PUSHUP_PIKE": {
+   "severity": "warning",
+   "template": "Significant hip elevation detected ({dev:.0%} of body length above the shoulder\u2013ankle line)."
+  },
+  "PULLUP_START_BENT": {
+   "severity": "warning",
+   "template": "Started with bent elbows (no full dead hang before the pull)."
+  },
+  "PULLUP_ROM": {
+   "severity": "warning",
+   "template": "Insufficient upward range of motion (minimum elbow angle {min_angle:.0f}\u00b0, shoulder travel {travel:.2f}\u00d7 arm length)."
+  },
+  "PULLUP_NO_HANG": {
+   "severity": "warning",
+   "template": "Did not return to a dead hang."
+  },
+  "PULLUP_CLEARANCE_UNVERIFIED": {
+   "severity": "info",
+   "template": "Top clearance could not be verified (no bar calibration, or head landmarks not visible at the top)."
+  },
+  "PULLUP_CLEARANCE_NOT_MET": {
+   "severity": "warning",
+   "template": "Head did not clear the calibrated bar height at the top."
+  }
+ },
+ "disclaimer": "RepVision AI provides estimated movement feedback from 2D pose estimation. It is not a medical assessment, injury-risk diagnosis, or guarantee of exercise safety or technique quality. Accuracy depends on camera placement, lighting, clothing and the pose model."
+}

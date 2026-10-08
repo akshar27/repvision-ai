@@ -1,0 +1,10 @@
+{
+  "_comment": "FORMAT EXAMPLE ONLY - not a real annotation of any video. Timestamps are milliseconds from video start.",
+  "video": "my_squats.mp4",
+  "exercise": "squat",
+  "reps": [
+    {"start_ms": 1300, "end_ms": 3600, "label": "full"},
+    {"start_ms": 4100, "end_ms": 6200, "label": "partial", "errors": ["depth"]},
+    {"start_ms": 7000, "end_ms": 9300, "label": "full", "errors": ["torso"]}
+  ]
+}

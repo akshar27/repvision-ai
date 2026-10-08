@@ -1,0 +1,22 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# env
+.env
+.env.local
+# generated data (never commit user videos or outputs)
+data/uploads/*
+data/outputs/*
+data/samples/*
+!data/*/.gitkeep
+# model assets are downloaded by scripts/download_models.py
+backend/assets/*.task
+# node
+node_modules/
+.next/
+frontend/public/models/
+frontend/public/mediapipe/
+.DS_Store
+*.log

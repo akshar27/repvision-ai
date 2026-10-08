@@ -1,0 +1,12 @@
+{
+  "exercise": "pullup",
+  "preset": "standard",
+  "bar_y": 0.18,
+  "overrides": {
+    "machine.full_depth_deg": 85,
+    "machine.rest_enter_deg": 150,
+    "min_travel_ratio": 0.3,
+    "top_reference": "mouth"
+  },
+  "notes": "bar_y is the bar height as a fraction of frame height (0 = top edge). Example values; calibrate for your setup."
+}
