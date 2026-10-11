@@ -41,6 +41,7 @@ def main() -> None:
     ap.add_argument("--setup", action="store_true")
     ap.add_argument("--backend-port", default="8000")
     ap.add_argument("--frontend-port", default="3000")
+    ap.add_argument("--lan", action="store_true", help="bind the backend to 0.0.0.0 so the phone app can reach it")
     a = ap.parse_args()
     if a.setup:
         setup()
@@ -51,7 +52,8 @@ def main() -> None:
 
     env = {**os.environ, "NEXT_PUBLIC_API_URL": f"http://localhost:{a.backend_port}"}
     procs = [
-        subprocess.Popen([str(VENV_PY), "-m", "uvicorn", "app.main:app", "--port", a.backend_port], cwd=BACK, env=env),
+        subprocess.Popen([str(VENV_PY), "-m", "uvicorn", "app.main:app", "--port", a.backend_port,
+                          "--host", "0.0.0.0" if a.lan else "127.0.0.1"], cwd=BACK, env=env),
         subprocess.Popen(["npm", "run", "dev", "--", "--port", a.frontend_port], cwd=FRONT, env=env),
     ]
     print(f"\nBackend  http://localhost:{a.backend_port}/docs\nFrontend http://localhost:{a.frontend_port}\n(Ctrl-C to stop)\n")

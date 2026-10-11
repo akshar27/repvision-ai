@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "RepVision AI",
+    "slug": "repvision-ai",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "repvision",
+    "icon": "./assets/icon.png",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.akshar.repvision",
+      "infoPlist": {
+        "NSAppTransportSecurity": { "NSAllowsLocalNetworking": true, "NSAllowsArbitraryLoads": true },
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.akshar.repvision",
+      "usesCleartextTraffic": true,
+      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#0b1220" }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-image-picker", {
+        "cameraPermission": "RepVision records your exercise set so it can count reps.",
+        "photosPermission": "RepVision picks a video of your exercise set to analyze.",
+        "microphonePermission": false
+      }]
+    ]
+  }
+}

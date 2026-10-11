@@ -77,6 +77,24 @@ cd frontend && npm install && npm run dev   # postinstall copies the MediaPipe W
 
 Config: copy `.env.example` → `.env` (backend, `REPVISION_*`) and set `NEXT_PUBLIC_API_URL` for the frontend if not 8000.
 
+## Mobile app (iOS + Android)
+
+`mobile/` is an Expo (React Native) app: record a set or pick a video, upload it to your backend, and get rep counts,
+feedback and the annotated video on your phone. Analysis runs on the backend, not on the phone, and there is no hosted
+service - you run the backend on your own computer.
+
+```bash
+python3 scripts/run_local.py --lan          # backend reachable from your phone (binds 0.0.0.0)
+cd mobile && npm install && npx expo start  # scan the QR code with Expo Go (iOS/Android)
+```
+
+Phone and computer must be on the same Wi-Fi. The app guesses the backend address from the Expo dev server; if it cannot
+connect, open **Server settings** in the app and enter `http://<your-computer-LAN-IP>:8000`. `--lan` exposes the
+unauthenticated API to your local network, so use it on networks you trust.
+
+Verified: typecheck, Android bundle export, and the upload -> analyze -> result flow against the backend over the LAN IP.
+Not verified: running on a physical device (recording, picking, inline playback of the annotated video).
+
 ## Usage
 
 **Video:** pick an exercise → drop a video → (pull-ups: click the frame to mark the bar) → *Analyze*. Use *Check camera
