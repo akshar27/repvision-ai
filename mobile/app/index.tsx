@@ -23,7 +23,11 @@ export default function Home() {
       ? await ImagePicker.requestCameraPermissionsAsync()
       : await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!perm.granted) return Alert.alert("Permission needed", `Allow ${source} access in Settings to continue.`);
-    const opts: ImagePicker.ImagePickerOptions = { mediaTypes: ["videos"], videoMaxDuration: 120, quality: 1 };
+    const opts: ImagePicker.ImagePickerOptions = {
+      mediaTypes: ["videos"], videoMaxDuration: 120,
+      // Phone videos are often 4K/hundreds of MB; 720p is plenty for pose estimation and uploads far faster.
+      videoExportPreset: ImagePicker.VideoExportPreset.H264_1280x720,
+    };
     const res = source === "camera" ? await ImagePicker.launchCameraAsync(opts) : await ImagePicker.launchImageLibraryAsync(opts);
     if (res.canceled || !res.assets[0]) return;
     const a = res.assets[0];

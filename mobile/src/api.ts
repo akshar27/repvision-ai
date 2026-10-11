@@ -55,7 +55,10 @@ async function timed(url: string, init?: RequestInit, ms = 8000): Promise<Respon
   const t = setTimeout(() => ctl.abort(), ms);
   try {
     return await fetch(url, { ...init, signal: ctl.signal });
-  } catch {
+  } catch (e) {
+    if (e instanceof Error && e.name === "AbortError") {
+      throw new Error(`Timed out talking to ${url.split("/api")[0]}. The video may be too large or the Wi-Fi too slow - try a shorter clip.`);
+    }
     throw new Error(`Can't reach ${url.split("/api")[0]}. Is the backend running with --lan and is your phone on the same Wi-Fi?`);
   } finally {
     clearTimeout(t);
@@ -77,7 +80,7 @@ export async function submitAnalysis(
   form.append("sensitivity", sensitivity);
   // React Native's FormData accepts a { uri, name, type } file descriptor.
   form.append("video", video as unknown as Blob);
-  const r = await timed(`${base}/api/analyze`, { method: "POST", body: form }, 120000);
+  const r = await timed(`${base}/api/analyze`, { method: "POST", body: form }, 300000);
   if (!r.ok) throw new Error(await errMessage(r));
   return (await r.json()).analysis_id as string;
 }
