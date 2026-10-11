@@ -4,6 +4,17 @@ Pose-based exercise analysis for **squats, push-ups and pull-ups**. Upload a vid
 estimates your skeleton, tracks joint angles over time, runs an exercise-specific repetition state machine, and reports
 **full / partial / uncertain** reps with measurable feedback, an annotated video, charts and exportable JSON.
 
+![CI](https://github.com/akshar27/repvision-ai/actions/workflows/ci.yml/badge.svg)
+
+<p align="center">
+  <img src="docs/img/annotated-frame.jpg" alt="Annotated frame: skeleton overlay, knee angles, phase and rep counters" width="340">
+  <img src="docs/img/results.jpg" alt="Results page: rep counts, feedback and rep timeline" width="620">
+</p>
+
+*Left: one frame of the annotated output (skeleton, joint angles, phase, live counters). Right: the results page for the
+sample clip (3 reps: 1 full, 2 partial - "insufficient depth, min knee angle 103°, target ≤ 100°"). Sample footage is a
+free [Mixkit](https://mixkit.co) clip; the video player in the screenshot was still loading when captured.*
+
 > **Not a medical tool.** RepVision gives *estimated* movement feedback from 2D pose estimation. It is not a medical
 > assessment, an injury-risk diagnosis, or a guarantee of exercise safety or technique quality. Feedback strings describe
 > measured deviations only.
